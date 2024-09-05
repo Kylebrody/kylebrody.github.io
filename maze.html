@@ -13,10 +13,57 @@
 			font-family: monospace;
 		}
 	</style>
+    <script>
+        const images = ["scene1.png", "scene2.png"];
+
+        const dialogue = ["T: Brother...", "you: ... Brother T?", "T: Are you excited?", "you: Excited for what?", "T: The journey ahead of us.", "you: I'm not sure what you're talking about.", "T: You'll see soon enough.", "you: ...", 
+        "you: How long have I been out?", "T: Not long. Tomorrow's the day. We finally get to <em>ascend</em>", 
+        "you: Ascend?", "T: Yes. Ascend to the next level of our existence. The Marshall finally thinks were ready", 
+        "you: The Marshall?", "T: Yes. The Marshall. The one who's been watching over us. The one who's been guiding us.", 
+        "you: Brother T we can NOT go through with this", "T: Why not?", 
+        "you: I've been having these dreams. These nightmares. I can't shake them. I can't shake the feeling that something is wrong",
+        "T: You're just nervous. It's normal to be nervous. This is a big step for us", 
+        "you: I'm not nervous. I'm scared. I don't understand why, but I finally feel awake. I know when we drink that juice we will die",
+        "T: You're being ridiculous. The Marshall has been watching over us. He wouldn't let anything happen to us", 
+        "you: I don't trust the Marshall. I don't trust the juice. I trust you T...", 
+        "T: You're being paranoid. You're being irrational. You're being selfish. You're going to ruin everything for us",
+        "you: Brother T... I can't explain it but we have to leave tomorrow before the ceremony.", 
+        "T: No. We can't. We have to go through with this. We have to ascend. We have to drink the juice", 
+        "you: I can't. I won't. I'm leaving. I'm leaving tonight", "T: No. You can't. You can't leave me. You can't leave us. You can't leave the Marshall", 
+        "you: I'm sorry. I have to. I have to leave. I have to leave you. I have to leave the Marshall", 
+        "T: No. You can't. You can't leave me. You can't leave us. You can't leave the Marshall", 
+        "you: I'm sorry. I have to. I have to leave. I have to leave you. I have to leave the Marshall", 
+        "You plead with Brother T. He is your closest friend. Morning comes..."];
+
+        let i = 0;
+        let t = 0;
+        function talk(){
+            t++;
+            if (t >= dialogue.length) {
+                t = 0;
+            }
+            document.getElementById("dialogue").innerHTML = dialogue[t];
+        }
+        function Move() {
+            i++;
+            if (i >= images.length) {
+                i = 0;
+            }
+            document.querySelector("img").src = images[i];
+        }
+    </script>
 </head>
 <body>
-    <div class="position-fixed-bottom">
-        <button type="button" class="btn btn-secondary">Move</button>
+    <br><br>
+    <h2 id="dialogue" style="color: aliceblue;">T: Brother... </h2>
+    <center><img src="scene1.png" alt=""></center>
+    <div class="fixed-top row justify-content-center">
+        <button type="button" class="btn btn-secondary ml-2" onclick="talk()">talk</button>
+    </div>
+    <div class="fixed-bottom row justify-content-center">
+        <button type="button" class="btn btn-secondary" onclick="left()">left</button>
+        <button type="button" class="btn btn-secondary ml-2" onclick="Move()">Move</button>
+        <button type="button" class="btn btn-secondary ml-2" onclick="right()">right</button>
     </div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
